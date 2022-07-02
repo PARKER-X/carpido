@@ -1,0 +1,149 @@
+{% extends 'seller/base.html' %}
+{% load static %}
+
+
+
+
+<body>
+    {% block content %}
+    <!-- Home -->
+    <section class="home" id="home">
+        <div class="text">
+            <h1><span>Looking</span> to <br>Sell a car</h1>
+            <p>Best Car Selling website most famous brand website include bmw rollroyce Honda ferrari many more   <br>
+                Sell More Get More.
+            </p>
+            <div class="app-stores">
+                <a href="#"> <img src="{% static 'img/ios6.png' %}" alt=""></a>
+                <a href="#"><img src="{% static 'img/play2.png' %}" alt=""></a>
+            </div>
+        </div>
+
+        
+    </section>
+
+
+    <!-- Ride -->
+    <section class="ride" id="ride">
+        <div class="heading">
+            <span>How It Works</span>
+            <h1>Rent With 3 Easy Steps</h1>
+        </div>
+        <div class="ride-container">
+            <div class="box">
+                <i class="bx bxs-map"></i>
+                <h2>Choose a location</h2>
+                <p>Any location any where in the world from earth to mars india to england asia to antartica delhi to mumbai village to city. Carpido is here for you. </p>
+            </div>
+            
+            <div class="box">
+                <i class='bx bxs-calendar-check'></i>
+                <h2>Pick-Up Date</h2>
+                <p> pick your date Book your car then pay Give me your pickup date I will give your car for riding.Go and enjoy your life with your family and friends. </p>
+            </div>
+
+            <div class="box">
+                <i class='bx bxs-calendar-star'></i>
+                <h2>Book A Car</h2>
+                <p>Book your car pick your date then pay Book various car with Good rate  I will give your car for riding.Go and enjoy your life with your family. </p>
+            </div>
+
+    
+        </div>
+    </section>
+
+    <!-- Services -->
+ 
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="heading">
+            <span>About Us</span>
+            <h1>Best Customer Experience</h1>
+        </div>
+        <div class="about-container">
+            <div class="about-img">
+                <img src="{% static 'img/cc1.jpg' %}" alt="about.jpg">
+            </div>
+            <div class="about-text">
+                <span>About Us</span>
+                <p>We are <strong style='color:orange;'> Carpido </strong> a car selling website with best customer experience award 2020 2021 2022. we started this company in 2020 in  three years journey. we achieved highest no. of users. </p>
+                <p>Our mission statement is provide best customer experience for your users.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Reviews -->
+    <section class="reviews" id="reviews">
+        <div class="heading">
+            <span>Reviews</span>
+            <h1>What Our Customers Say</h1>
+        </div>
+        <div class="reviews-container">
+            <div class="box">
+                <div class="rev-img">
+                    <img src="{% static 'img/rev1.jpeg' %}" alt="rev1.jpg">
+                </div>
+                <h2>Rencho Baba</h2>
+                <div class="stars">
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star' ></i>
+                </div>
+                <p>Best car Selling website good car with good condition. I like this car selling website  me and my friends enjoying the long ride.</p>
+            </div>
+            <div class="box">
+                <div class="rev-img">
+                    <img src="{% static 'img/rev2.jpg' %}" alt="rev1.jpg">
+                </div>
+                <h2>Ak</h2>
+                <div class="stars">
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star' ></i>
+                </div>
+                <p>I'm a f1 racer. They have very good racing car at low price. I Sell a car and  i get very good price.</p>
+            </div>
+            <div class="box">
+                <div class="rev-img">
+                    <img src="{% static 'img/rev3.jpg' %}" alt="rev1.jpg">
+                </div>
+                <h2>Angelia</h2>
+                <div class="stars">
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star-half' ></i>
+                </div>
+                <p>Me and my friends decided to go for a holiday and we sell a car and get so much money. I'm fully statsified with their service.  </p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <h2>Subscribe To Newsletter</h2>
+        <div class="box">
+            <input type="email" name="email" id="" placeholder="Enter Your Email...">
+            <a href="#" class="btn" >Subscribe</a>
+        </div>
+    </section>
+    <div class="copyright">
+        <p>&#169; Parker-Carpido All Right Reserved 2022</p>
+        <div class="social">
+            <a href="#"><i class='bx bxl-facebook' ></i></a>
+            <a href="#"><i class='bx bxl-twitter' ></i></a>
+            <a href="#"><i class='bx bxl-instagram' ></i></a>
+        </div>
+    </div>
+    {% endblock content %}
+
+<!-- Scroll Reveal -->

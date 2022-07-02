@@ -1,0 +1,479 @@
+{% extends 'home/base.html' %}
+{% block content %}
+<style> 
+    @import "compass/css3";
+
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic|Montserrat:400,700);
+@import "compass/reset";
+$fontSans : 'Montserrat', sans-serif;
+$fontSerif : 'Droid Serif', serif;
+
+
+@mixin transition($transition-property, $transition-time, $method) {
+    -webkit-transition: $transition-property $transition-time $method;
+    -moz-transition: $transition-property $transition-time $method;
+    -ms-transition: $transition-property $transition-time $method;
+    -o-transition: $transition-property $transition-time $method;
+    transition: $transition-property $transition-time $method;
+}
+*{ box-sizing:border-box;}
+
+
+
+body {
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+  font-family: $fontSerif;
+ 
+}
+ img {
+   max-width:100%;
+ }
+.cf:before,.cf:after {content: " ";display: table;}
+.cf:after {clear: both;}
+.cf {*zoom: 1;}
+
+
+.wrap {
+  width: 75%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 5% 0;
+  margin-bottom: 5em;
+  
+}
+
+.projTitle {
+   font-family: $fontSans;
+    font-weight: bold;
+  text-align: center;
+  font-size: 2em;
+  padding: 1em 0;
+  border-bottom: 1px solid #dadada;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  span {
+    font-family: $fontSerif;
+    font-weight: normal;
+    font-style: italic;
+     text-transform: lowercase;
+    color: #777;
+    
+  }
+}
+// CART HEADER
+.heading {
+  padding: 1em 0;
+  border-bottom: 1px solid #D0D0D0;
+ 
+  h1 {
+   font-family: $fontSerif;
+   font-size: 2em;
+   float: left;
+  }
+  a.continue {
+    &:link , &:visited {
+      text-decoration: none;
+      font-family: $fontSans;
+      letter-spacing: -.015em;
+      font-size: .75em;
+      padding: 1em;
+      color: #fff;
+      background: #82ca9c;
+      font-weight: bold;
+      border-radius: 50px;
+    float: right;
+      text-align: right;
+       @include transition(all, .25s, linear);
+    }
+    &:after {
+      content: "\276f";
+      padding: .5em;
+      position: relative;
+      right:0;
+       @include transition(all, .15s, linear);
+      
+    }
+    &:hover , &:focus, &:active {
+      background: #f69679;
+      
+      &:after {
+        right: -10px;
+      }
+    }
+  }
+}
+
+// TABLE HEADING 
+
+.tableHead {
+  display: table;
+  width: 100%;
+  font-family: $fontSans;
+  font-size: .75em;
+  li {
+    display: table-cell;
+    padding: 1em 0;
+    text-align: center;
+    &.prodHeader {
+      text-align: left;
+    }
+  }
+}
+
+// CART Items
+
+.cart {
+  padding: 1em 0 ;
+ 
+  .items {
+    display: block;
+    width: 100%;
+ vertical-align: middle;
+    padding: 1.5em;
+   
+    border-bottom: 1px solid #fafafa;
+    &.even {
+      background: #fafafa;
+    }
+    .infoWrap {
+      display: table;
+      width: 100%;
+    }
+    .cartSection {
+      display: table-cell;
+ 
+      vertical-align: middle;
+      
+      
+      .itemNumber {
+  font-size: .75em;
+        color: #777;
+        margin-bottom: .5em;
+}
+      
+      h3 {
+   
+        font-size: 1em;
+      font-family: $fontSans;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: .025em;
+        
+         
+      }
+      p {
+        display: inline-block;
+        font-size: .85em;
+        
+        color: #777777;
+        font-family: $fontSans;
+            .quantity {
+        font-weight: bold;
+              color: #333;
+      }
+        
+        &.stockStatus {
+          color: #82CA9C;
+          font-weight: bold;
+          padding: .5em 0 0 1em;
+          text-transform: uppercase;
+          &.out {
+            color: #F69679;
+          }
+        }
+        
+      }
+      .itemImg {
+        width: 4em;
+       
+        float: left;
+      }
+      &.qtyWrap , &.prodTotal {
+        text-align: center;
+    p {
+      font-weight: bold;
+      font-size: 1.25em;
+    }
+       
+      }
+      
+    input.qty {
+        width: 2em;
+        text-align: center;
+        font-size: 1em;
+          padding: .25em;
+      margin: 1em .5em 0 0;
+        
+      }
+      .itemImg {
+        width: 8em;
+        display: inline;
+        padding-right: 1em;
+      }
+       
+ 
+    }
+  }
+  
+}   
+ 
+ .special {
+   display: block;
+   font-family: $fontSans;
+  .specialContent {
+   padding: 1em 1em 0;
+    display: block; 
+   margin-top:.5em;
+   border-top: 1px solid #dadada;
+   &:before {
+     content: "\21b3";
+     font-size: 1.5em;
+      margin-right: 1em;
+     color: #6f6f6f;
+     font-family: helvetica, arial, sans-serif;
+   }}
+ 
+ }
+
+a.remove {
+  text-decoration: none;
+  font-family: $fontSans;
+  color: #ffffff;
+  font-weight: bold;
+  background: #e0e0e0;
+  padding: .5em;
+  font-size: .75em;
+  display: inline-block;
+  border-radius: 100%;
+  line-height: .85;
+   @include transition(all, .25s, linear);
+  &:hover {
+    background: #f30;
+  }
+}
+
+.promoCode {
+  border:2px solid #efefef;
+  float: left;
+  width: 35%;
+  padding: 2%;
+  label {
+    display: block;
+    width: 100%;
+ font-style: italic;
+    font-size: 1.15em;
+ 
+    margin-bottom: .5em;
+    letter-spacing: -.025em;
+    
+  }
+  input {
+    width: 85%;
+    font-size: 1em;
+    padding: .5em;
+    float: left;
+    border: 1px solid #dadada;
+    &:active, &:focus {
+      outline: 0;
+     
+    }
+  }
+  a.btn {
+    float: left;
+    width: 15%;
+    padding: .75em 0;
+    border-radius: 0 1em 1em 0;
+    text-align: center;
+    border: 1px solid #82ca9c;
+    &:hover {
+       border: 1px solid #f69679;
+       background: #f69679;
+    }
+  }
+}
+
+.btn {
+     &:link , &:visited {
+      text-decoration: none;
+      font-family: $fontSans;
+      letter-spacing: -.015em;
+      font-size: 1em;
+      padding: 1em 3em;
+      color: #fff;
+      background: #82ca9c;
+      font-weight: bold;
+      border-radius: 50px;
+    float: right;
+      text-align: right;
+       @include transition(all, .25s, linear);
+    }
+      &:after {
+      content: "\276f";
+      padding: .5em;
+      position: relative;
+      right:0;
+       @include transition(all, .15s, linear);
+      
+    }
+    &:hover , &:focus, &:active {
+      background: #f69679;
+        &:after {
+        right: -10px;
+      }
+    }
+  
+  .promoCode & {
+    font-size: .85em;
+    paddding: .5em 2em;
+  }
+}
+
+/* TOTAL AND CHECKOUT  */
+.subtotal {
+float: right;
+ width: 35%;
+  .totalRow {
+    padding: .5em;
+   text-align: right;
+  
+    &.final {
+      font-size: 1.25em;
+      font-weight: bold;
+    }
+    span {
+      display: inline-block;
+      padding: 0 0 0 1em;
+      text-align: right;
+     
+    }
+    .label {
+       font-family: $fontSans;
+      font-size: .85em;
+      text-transform: uppercase;
+      color: #777;
+    }
+    .value {
+ 
+      letter-spacing: -.025em;
+      width: 35%;
+    }
+  }
+}
+
+@media only screen and (max-width:39.375em){
+
+.wrap {
+  width: 98%;
+  padding: 2% 0;
+}
+.projTitle{
+  font-size: 1.5em;
+  padding: 10% 5%;
+}
+.heading {
+  padding: 1em;
+  font-size: 90%;
+}
+.cart {
+  .items {
+
+  .cartSection {
+    width: 90%;
+      display: block;float: left;
+     &.qtyWrap {
+       width: 10%;
+      text-align: center;
+       padding: .5em 0;
+       float: right;
+       &:before {
+         content: "QTY";
+         display: block;
+         font-family: $fontSans;
+         padding: .25em;
+         font-size: .75em;
+       }
+     }
+     &.prodTotal , &.removeWrap { 
+       display: none;
+     }
+    .itemImg {
+      width: 25%;
+    }
+  }
+  }}
+.promoCode , .subtotal{
+  width: 100%;
+}
+
+  a.btn.continue {
+width: 100%;
+text-align: center;
+}
+}
+ 
+  </style>
+
+<div class="wrap cf">
+    <h1 class="projTitle"><span>Your</span> Shopping Cart</h1>
+    <div class="heading cf">
+      <h1>My Cart</h1>
+      <a href="{% url 'buyer' %}" class="continue">Continue Shopping</a>
+    </div>
+    <div class="cart">
+  <!--    <ul class="tableHead">
+        <li class="prodHeader">Product</li>
+        <li>Quantity</li>
+        <li>Total</li>
+         <li>Remove</li>
+      </ul>-->
+     
+      <ul class="cartWrap">
+        <li class="items odd">
+          {% for cartitems in carts.cart_items.all  %}
+      <div class="infoWrap"> 
+        <img src="{{cartitems.car.images.url}}" style="height:100px; weight:100px;">
+          <div class="cartSection">
+          <img src="http://lorempixel.com/output/technics-q-c-300-300-4.jpg" alt=""  class="itemImg" />
+            <p class="itemNumber"></p>
+            <h3>{{cartitems.car.car_name}}</h3>
+          
+             <p> <input type="text"  class="qty" placeholder="{{cartitems.car.price}}"/> X 1</p>
+          
+            <p class="stockStatus"> In Stock</p>
+          </div>  
+      
+          
+          <div class="prodTotal cartSection">
+            <p>₹{{cartitems.car.price}}</p>
+          </div>
+                <div class="cartSection removeWrap">
+             <a href="{% url 'remove' cartitems.uid %}" class="remove">x</a>
+          </div>
+        </div>
+        </li>
+        
+        
+        
+        <!--<li class="items even">Item 2</li>-->
+        {% endfor %}
+      </ul>
+    </div>
+  
+    
+    
+    <div class="subtotal cf">
+      <ul>
+        <li class="totalRow"><span class="label">Subtotal   </span><span class="value">:  ₹{{carts.sub_cart_total}}</span></li>
+        
+            <li class="totalRow"><span class="label">Shipping   </span><span class="value">:  ₹10000</span></li>
+        
+              <li class="totalRow"><span class="label">Tax   </span><span class="value">:  ₹{{carts.tax_cart_total}}</span></li>
+              <strong><li class="totalRow final"><span class="label">Total   </span><span class="value">:  ₹{{carts.get_cart_total}}</span></li></strong>
+        <li class="totalRow"><a href="{% url 'processOrder' %}" class="btn continue">Checkout</a></li>
+      </ul>
+    </div>
+  </div>
+
+ 
+  {% endblock content %}

@@ -1,0 +1,232 @@
+{% extends 'seller/base.html' %}
+{% load static %}
+{% block content %}
+    
+      <style>
+        .container-1 {
+          
+          text-align: center;
+          
+          font-family: Arial, Helvetica, sans-serif;
+          background-color: rgb(230, 239, 245);
+        }
+        @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  display: block;
+}
+a {
+  margin-left: 30px;
+  color: #3c63cc;
+  font-weight: 600;
+}
+a:hover {
+  margin-left: 30px;
+  color: #2fa1fd;
+}
+.modernForm {
+  max-width: 1200px;
+  display: flex;
+  margin: 100px auto;
+  background-color: #fff;
+  border-radius: 10px;
+}
+.imageSection {
+  flex-basis: 50%;
+  position: relative;
+  color: white;
+}
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  z-index: 0;
+}
+.textInside,
+.service {
+  position: absolute;
+}
+.textInside {
+  bottom: 200px;
+  right: 120px;
+}
+.tagLine {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.price {
+  font-size: 2rem;
+  font-weight: 700;
+}
+.service {
+  bottom: 30px;
+  right: 50px;
+}
+.service p {
+  font-weight: 700;
+}
+.contactForm {
+  flex-basis: 45%;
+  margin: auto;
+  color: #555;
+  padding-left: 30px;
+}
+.contactForm h1 {
+  padding: 15px 0;
+}
+input[type="email"],
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: rgb(177, 177, 177) 1px solid;
+  margin-top: 10px;
+}
+.name {
+  position: relative;
+  margin-bottom: 20px;
+}
+.iconName {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+input[type="submit"] {
+  background-color: #3c63cc;
+  font-size: 1rem;
+  border: none;
+  color: white;
+  padding: 10px 50px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin: 30px 0;
+  cursor: pointer;
+  float: left;
+}
+input[type="submit"]:hover {
+  background-color: #2fa1fd;
+}
+
+@media only screen and (max-width: 768px) {
+  .modernForm {
+    flex-wrap: wrap;
+  }
+  .imageSection,
+  .contactForm {
+    flex-basis: 100%;
+  }
+  .overlay,
+  img {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  .contactForm {
+    padding-right: 30px;
+  }
+}
+
+      </style>
+   
+    
+    
+  <div style="width: 100%; padding:20px;">
+    
+    <div class="modernForm">
+      <div class="imageSection">
+        <div class="image">
+          <div class="overlay"></div>
+          <img src="{% static 'img/1.jpg' %}" alt="pexels-yuri-manei-2272854">
+        </div>
+        <!-- <div class="textInside">
+          <h1>Bring Your Car Here</h1>
+          <p class="tagLine">Sell Here</p>
+        </div>
+        <div class="service">
+          <p><span class="price">₹High Price</span> </p>
+        </div> -->
+      </div>
+      <div class="contactForm">
+        <h1>Registaration Form</h1>
+          <form action="{% url 'result2' %}">
+        {% csrf_token %}
+    
+        
+        <div class="form-group" >
+            <label for="carname">carname</label>
+            <input type="text">
+        </div>
+        <div class="form-group" >
+            <label for="carname">Model</label>
+            <input type="text">
+        </div>
+        <div class="form-group" >
+            <label for="">Orginal Price</label>
+            <input type="text" id="price">
+        </div>
+        <div class="form-group" >
+            <label for="carname">Km driven</label>
+            <input type="text">
+        </div>
+        <div class="form-group"  >
+            <label for="carname">Year of purchase</label>
+            <input type="text" id="year">
+        </div>
+
+        <div id="result"></div>
+
+    
+    
+        
+        <input class="btn btn-primary btn-lg btn-block" type="submit" value='Predict' onclick="submit1()"/>
+    
+      </form>
+      
+      </div>
+      </div>
+ 
+    
+   
+  </div>
+
+  <script>
+   function submit1 () {
+    var price =  parseInt(document.getElementById("price").value);
+    var year =  parseInt(document.getElementById("year").value);
+    // const result =  parseInt(price * 0.8 + year);
+
+    // localStorage.setItem("result",result);
+    localStorage.setItem("price",price);
+    localStorage.setItem("year",year);
+    
+    // localStorage.setItem("textvalue",c);
+    // console.log(a);
+    // console.log(b);
+    // console.log(c);
+    return false;
+
+
+  }
+
+//   var d = sessionStorage.setItem("c", c);
+
+
+
+  </script>
+
+    {% endblock content %}
