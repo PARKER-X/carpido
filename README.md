@@ -1,9 +1,9 @@
 # Carpido-the car Buying Selling website
 Frontend- Html css js talwindcss (codepen)        
 Backend- Django  , Machine Learning 
-Database- Sqlite 
+Database- Sqlite
 
-Carpido new version  car buying and selling website
+Carpido
 ![Screenshot (220)](https://user-images.githubusercontent.com/74282916/176484785-de99164d-dd54-4408-9c19-f48b710cf21d.png)
 
 
