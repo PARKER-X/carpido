@@ -1,7 +1,83 @@
 # Carpido-the car Buying Selling website
-Frontend- Html css js talwindcss (codepen)        
-Backend- Django  , Machine Learning 
-Database- Sqlite
+
+
+## About the Project 
+The goal of the project to create a car and buying selling website with affordable money.
+
+# Features of the Project
+- Authorization system for Seller and Buyer 
+- Computerized method to calculate car price and verification
+- Give best user services 
+- use stripe for payment 
+- Easy access to buy and sell car.
+
+# Details:
+- Project Platform	: Django/Python
+- Architecture  :  MVT
+
+- Front End :	 Html5,Css3,Bootstrap,js
+- Back End	: Django
+- IDE Tool	: VScodium
+- Database	: SQLite
+- Project Type	: Web Application
+
+# List of implemented features
+- Login and Logout
+- stripe payment
+- car selling and buying
+- FAQs.
+- integration of machine learning 
+
+# Software Requirement to run this project
+- Python3
+- PIP Packages
+- keras
+- tensorflow
+- opencv2
+- Django
+
+# How to Start?
+
+## Setup Locally
+
+- Clone the repo: 
+    ```
+    git clone https://github.com/ironman32022/Hackexpress_vets.git
+     ```
+    
+After cloning successfully
+
+- Cmd to Run: 
+    ```
+    python manage.py runserver
+
+
+ # Installation instructions to set up the project from scratch   
+    
+ # How to Run 
+ - install [Django](https://www.djangoproject.com/download/).
+ - install [PiP](https://pypi.org/project/pip-download/).
+ 
+ 
+# System Installation/SetUp
+Complete steps to run this  project
+- **step-1** : Open a New terminal
+- **step-2** : Run a cmd as : pip install **keras**
+- **step-3** : then pip install **tensorflow**
+- **step-4** : pip install **opencv2**.
+- **step-5** : Run a command called **python manage.py runserver**
+- **step-6** : Browse the  host name as https://127.0.0.1:8000 .
+
+
+
+
+
+
+
+
+
+
+
 
 
 
