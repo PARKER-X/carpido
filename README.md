@@ -2,7 +2,7 @@
 
 
 ## About the Project 
-The goal of the project to create a car and buying selling website with affordable money.
+The goal of the project to create a car and buying selling website with affordable price.
 
 # Features of the Project
 - Authorization system for Seller and Buyer 
