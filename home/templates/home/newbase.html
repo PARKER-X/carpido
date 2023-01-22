@@ -6,10 +6,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Car Rental Website</title>
     <!-- Link To CSS -->
-    <link rel="stylesheet" href="{% static 'static/css/style.css'%}">
+    <link rel="stylesheet" href="./style.css">
     <!-- Box Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 </head>
@@ -424,7 +423,7 @@ header{
         margin: 80px 0;
         min-height: 90vh;
         position: relative;
-        background: url(static/img/cc1.jpg);
+        background: url(img/cc1.jpg);
         background-repeat: no repeat;
         background-position: top;
         background-size: cover;
@@ -548,43 +547,220 @@ header{
         font-size: 14px;
         font-weight: 400;
     }
-    
 }
 </style>
+
 <body>
-
-
-<header>
-    <a href="{% url 'home' %}" class="logo"><img src="{% static 'img/jeep.jpeg' %}" alt=""></a>
-    <div class="bx bx-menu" id="menu-icon"></div>
-    <ul class="navbar">
-        <li><a href="{% url 'home' %}">Home</a></li>
-        <li><a href="{% url 'ride' %}">Ride</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#reviews">Reviews</a></li>
+    <header>
+        <a href="{% url 'home' %}" class="logo"><img src="{% static 'img/jeep.jpeg' %}" alt=""></a>
+        <div class="bx bx-menu" id="menu-icon"></div>
+        <ul class="navbar">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#ride">Ride</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+        </ul>
+       
+        
+        <div class="header-btn">
+            {% if request.user.is_authenticated %}
+            {% comment %} <a href="{% url 'cart' %}" class="sign-up">Dashboard</a>
+            <a href="{% url 'logout' %}" class="sign-up">Logout</a> {% endcomment %}
+            {% comment %} <p> {{request.user.get_cart_count}} </p> {% endcomment %}
+            {% comment %} <a href="#" class="sign-in">Sign In</a> {% endcomment %}
+            <a href="{% url 'buyer' %}" class="sign-up">Buyer</a>
+            <a href="{% url 'seller' %}" class="sign-in">Seller</a> 
     
-    <div class="header-btn">
-        {% if request.user.is_authenticated %}
-        {% comment %} <a href="{% url 'cart' %}" class="sign-up">Dashboard</a>
-        <a href="{% url 'logout' %}" class="sign-up">Logout</a> {% endcomment %}
-        {% comment %} <p> {{request.user.get_cart_count}} </p> {% endcomment %}
-        {% comment %} <a href="#" class="sign-in">Sign In</a> {% endcomment %}
-        <a href="{% url 'buyer' %}" class="sign-up">Buyer</a>
-        <a href="{% url 'seller' %}" class="sign-in">Seller</a> 
+            {% else %}
+            <a href="{% url 'buyer' %}" class="sign-up">Buyer</a>
+            <a href="{% url 'seller' %}" class="sign-in">Seller</a> 
+    
+            {% endif %}
+    </header>
+    <!-- Home -->
+    <section class="home" id="home">
+        <div class="text">
+            <h1><span>Looking</span> to <br>Buy a car</h1>
+            <p>Best Car Buying and Selling website most famous brand website include bmw rollroyce Honda ferrari many more   <br>
+                Buy More Pay Less.
+            </p>
+            <div class="app-stores">
+                <a href="#"> <img src="{% static 'img/ios6.png' %}" alt=""></a>
+                <a href="#"><img src="{% static 'img/play2.png' %}"></a>
+            </div>
+        </div>
 
-        {% else %}
-        <a href="{% url 'buyer' %}" class="sign-up">Buyer</a>
-        <a href="{% url 'seller' %}" class="sign-in">Seller</a> 
+        <form action="">
+            <div class="form-container">
+                <div class="input-box">
+                    <span>Company</span>
+                    <input type="search" name="" id="" placeholder="Search comapny">
+                </div>
+                <div class="input-box">
+                    <span>Name</span>
+                    <input type="search" name="" id="" placeholder="Search Name">
+                </div>
+                <div class="input-box">
+                    <span>Price</span>
+                    <input type="search" name="" id="" placeholder="Search price">
+                </div>
+                <input type="submit" name="" id="" class="btn">
+            </div>
+        </form>
+    </section>
 
-        {% endif %}
+
+    <!-- Ride -->
+    <section class="ride" id="ride">
+        <div class="heading">
+            <span>How It Works</span>
+            <h1>Buy With 3 Easy Steps</h1>
+        </div>
+        <div class="ride-container">
+            <div class="box">
+                <i class="bx bxs-map"></i>
+                <h2>Choose a location</h2>
+                <p>Any location any where in the world from earth to mars india to england asia to antartica delhi to mumbai village to city. Carpido is here for you. </p>
+            </div>
+            
+            <div class="box">
+                <i class='bx bxs-calendar-check'></i>
+                <h2>Pick-Up Date</h2>
+                <p> pick your date Book your car then pay Give me your pickup date I will give your car for riding.Go and enjoy your life with your family and friends. </p>
+            </div>
+
+            <div class="box">
+                <i class='bx bxs-calendar-star'></i>
+                <h2>Book A Car</h2>
+                <p>Book your car pick your date then pay Book various car with Good rate  I will give your car for riding.Go and enjoy your life with your family. </p>
+            </div>
+
+    
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="heading">
+            <span>Best Services</span>
+            <h1>Explore Out Top Deals <br>From Top Rated Dealers
+            </h1>
+        </div>
+        <div class="services-container">
+            {% for cars in car %}
+            <div class="box">
+                <div class="box-img">
+                    <img src="{{ cars.images.url }}" alt="">
+                </div>
+                <p>2017</p>
+                <h3>{{ cars.car_name }}</h3>
+                <h2>{{ cars.price }} <span>₹</span> </h2>
+                <a href="#" class="btn">Rent Now</a>
+            </div>
+            
+            {% endfor %}
+        </div>
+
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="heading">
+            <span>About Us</span>
+            <h1>Best Customer Experience</h1>
+        </div>
+        <div class="about-container">
+            <div class="about-img">
+                <img src="{% static 'img/5.jpg'  %}" alt="about.jpg" >
+            </div>
+            <div class="about-text">
+                <span>About Us</span>
+                <p>We are <strong style='color:orange;'> Carpido </strong> a car Buying website with best customer experience award 2020 2021 2022. we started this company in 2020 in  three years journey. we achieved highest no. of users. </p>
+                <p>Our mission statement is provide best customer experience for your users.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Reviews -->
+    <section class="reviews" id="reviews">
+        <div class="heading">
+            <span>Reviews</span>
+            <h1>What Our Customers Say</h1>
+        </div>
+        <div class="reviews-container">
+            <div class="box">
+                <div class="rev-img">
+                    <img src="{% static 'img/rev1.jpeg' %}" alt="rev1.jpg">
+                </div>
+                <h2>Rencho Baba</h2>
+                <div class="stars">
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star' ></i>
+                </div>
+                <p>Best car Buying website good car with good condition. I like this car me and my friends enjoying the long ride.</p>
+            </div>
+            <div class="box">
+                <div class="rev-img">
+                    <img src="{% static 'img/rev2.jpg' %}" alt="rev1.jpg">
+                </div>
+                <h2>Ak</h2>
+                <div class="stars">
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star' ></i>
+                </div>
+                <p>I'm a f1 racer. They have very good racing car at low price. I buy a car and win that competition</p>
+            </div>
+            <div class="box">
+                <div class="rev-img">
+                    <img src="{% static 'img/rev3.jpg' %}" alt="rev1.jpg">
+                </div>
+                <h2>Angelia</h2>
+                <div class="stars">
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star-half' ></i>
+                </div>
+                <p>Me and my friends decided to go for a long drive and we buy a car and save so much money. I'm fully statsified with their service.  </p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <h2>Subscribe To Newsletter</h2>
+        <div class="box">
+            <input type="email" name="email" id="" placeholder="Enter Your Email...">
+            <a href="#" class="btn" >Subscribe</a>
+        </div>
+    </section>
+    <div class="copyright">
+        <p>&#169; Parker-Car-Buying All Right Reserved 2022</p>
+        <div class="social">
+            <a href="#"><i class='bx bxl-facebook' ></i></a>
+            <a href="#"><i class='bx bxl-twitter' ></i></a>
+            <a href="#"><i class='bx bxl-instagram' ></i></a>
+        </div>
     </div>
-</ul>
-</header>
+    
+
+<!-- Scroll Reveal -->
 <script src="https://unpkg.com/scrollreveal"></script>
 
 
     <!-- Link To JS -->
-    <script >
+    <script>
         let menu = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar')
 
@@ -614,15 +790,8 @@ sr.reveal('.services', {delay: 20, origin: 'top'});
 sr.reveal('.about-container', {delay: 50, origin: 'top'});
 sr.reveal('.reviews-container', {delay: 50, origin: 'top'});
 sr.reveal('.newsletter .box', {delay: 400, origin: 'bottom'});
-    
     </script>
 
-
-
-{% block content %}
-
-
-{% endblock content %}
-
 </body>
+
 </html>
