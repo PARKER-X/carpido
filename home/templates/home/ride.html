@@ -1,10 +1,10 @@
-{% extends 'home/base.html' %}
+{% extends 'home/nav.html' %}
 {% block content %}
 
 <br>
 <br>
 <br>
-<div class="services-container">
+<div class="services-container" style="    margin: 35px;">
     {% for cars in car  %}
     <div class="box">
         <div class="box-img">
@@ -12,7 +12,7 @@
         </div>
         <p><a href="{% url 'detail' cars.uid %}" >View</a></p>
         <h3>{{cars.car_name}}</h3>
-        <h2>{{cars.price}} <span>Day</span> </h2>
+        <h2>{{cars.price}} <span>₹</span> </h2>
         {% if user.is_authenticated %}
         <a href="{% url 'add_cart' cars.uid %}" class="btn">Rent Now</a>
         {% else %}
