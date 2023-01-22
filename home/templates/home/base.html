@@ -6,10 +6,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Car Rental Website</title>
+    <title>Car Buying Rental Website</title>
     <!-- Link To CSS -->
-    <link rel="stylesheet" href="{% static 'static/css/style.css'%}">
+    <link rel="stylesheet" href="./style.css">
     <!-- Box Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 </head>
@@ -424,7 +423,7 @@ header{
         margin: 80px 0;
         min-height: 90vh;
         position: relative;
-        background: url(static/img/cc1.jpg);
+        background: url(img/cc1.jpg);
         background-repeat: no repeat;
         background-position: top;
         background-size: cover;
@@ -548,43 +547,214 @@ header{
         font-size: 14px;
         font-weight: 400;
     }
-    
 }
 </style>
+
 <body>
-
-
-<header>
-    <a href="{% url 'home' %}" class="logo"><img src="{% static 'img/jeep.jpeg' %}" alt=""></a>
-    <div class="bx bx-menu" id="menu-icon"></div>
-    <ul class="navbar">
-        <li><a href="{% url 'buyer' %}">Home</a></li>
-        <li><a href="{% url 'ride' %}">Ride</a></li>
-        <li><a href="#services">Services</a></li>
-        
-        <li><a href="#reviews">Reviews</a></li>
+    <header>
+        <a href="{% url 'home' %}" class="logo"><img src="{% static 'img/jeep.jpeg' %}" alt=""></a>
+        <div class="bx bx-menu" id="menu-icon"></div>
+        <ul class="navbar">
+            <li><a href="#home">Home</a></li>
+            <li><a href="{% url 'ride' %}">Ride</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            
+        <div class="header-btn">
+            {% if request.user.is_authenticated %}
+            {% if request.user.get_cart_count  %}
+            <a href="{% url 'cart' %}" class="sign-up">Dashboard</a>
+            {% endif %}
+            <a href="{% url 'Logout' %}" class="sign-up">Logout</a>
+            {% comment %} <p> {{request.user.get_cart_count}} </p> {% endcomment %}
+            {% comment %} <a href="#" class="sign-in">Sign In</a> {% endcomment %}
+            {% else %}
+            <a href="{% url 'Login' %}" class="sign-up">Login</a>
+            <a href="{% url 'Register' %}" class="sign-in">Register</a> 
     
-    <div class="header-btn">
-        {% if request.user.is_authenticated %}
-        {% if request.user.get_cart_count  %}
-        <a href="{% url 'cart' %}" class="sign-up">Dashboard</a>
-        {% endif %}
-        <a href="{% url 'Logout' %}" class="sign-up">Logout</a>
-        {% comment %} <p> {{request.user.get_cart_count}} </p> {% endcomment %}
-        {% comment %} <a href="#" class="sign-in">Sign In</a> {% endcomment %}
-        {% else %}
-        <a href="{% url 'Login' %}" class="sign-up">Login</a>
-        <a href="{% url 'Register' %}" class="sign-in">Register</a> 
+            {% endif %}
+        </div>
+        </ul>
+       
+    </header>
+    <!-- Home -->
+    <section class="home" id="home">
+        <div class="text">
+            <h1><span>Looking</span> to <br>rent a car</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quaerat officiis doloremque eum perferendis
+                doloribus minima illo quam sed odit.
+            </p>
+            <div class="app-stores">
+                <a href="#"> <img src="img/ios6.png" alt=""></a>
+                <a href="#"><img src="img/play2.png" alt=""></a>
+            </div>
+        </div>
 
-        {% endif %}
-    </div>
-</ul>
-</header>
+        <form action="">
+            <div class="form-container">
+                <div class="input-box">
+                    <span>Location</span>
+                    <input type="search" name="" id="" placeholder="Search Places">
+                </div>
+                <div class="input-box">
+                    <span>Pick-Up Date</span>
+                    <input type="date" name="" id="">
+                </div>
+                <div class="input-box">
+                    <span>Return Date</span>
+                    <input type="date" name="" id="">
+                </div>
+                <input type="submit" name="" id="" class="btn">
+            </div>
+        </form>
+    </section>
+
+
+    <!-- Ride -->
+    <section class="ride" id="ride">
+        <div class="heading">
+            <span>How It Works</span>
+            <h1>Rent With 3 Easy Steps</h1>
+        </div>
+        <div class="ride-container">
+            <div class="box">
+                <i class="bx bxs-map"></i>
+                <h2>Choose a location</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum fugiat corrupti atque, temporibus ducimus iste est saepe repellendus debitis? Temporibus.</p>
+            </div>
+            
+            <div class="box">
+                <i class='bx bxs-calendar-check'></i>
+                <h2>Pick-Up Date</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum fugiat corrupti atque, temporibus ducimus iste est saepe repellendus debitis? Temporibus.</p>
+            </div>
+
+            <div class="box">
+                <i class='bx bxs-calendar-star'></i>
+                <h2>Book A Car</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum fugiat corrupti atque, temporibus ducimus iste est saepe repellendus debitis? Temporibus.</p>
+            </div>
+
+    
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="heading">
+            <span>Best Services</span>
+            <h1>Explore Out Top Deals <br>From Top Rated Dealers
+            </h1>
+        </div>
+        <div class="services-container">
+            {% for cars in car %}
+            <div class="box">
+                <div class="box-img">
+                    <img src="{{cars.images.url}}" alt="">
+                </div>
+                <p>2017</p>
+                <p><a href="{% url 'detail' cars.uid %}" >View</a></p>
+                <h3>2018 Honda Civic</h3>
+                <h2>$58500 | $538 <span>month</span> </h2>
+                <a href="#" class="btn">Rent Now</a>
+            </div>
+            {% endfor %}
+            
+            
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="heading">
+            <span>About Us</span>
+            <h1>Best Customer Experience</h1>
+        </div>
+        <div class="about-container">
+            <div class="about-img">
+                <img src="img/cc.jpeg" alt="about.jpg">
+            </div>
+            <div class="about-text">
+                <span>About Us</span>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste ea, nobis aspernatur eos a, eius ut in sit qui minima fuga? Nobis rerum laborum maiores quo adipisci sequi illo eaque, corporis quam expedita veritatis.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non ad iusto officiis hic pariatur perspiciatis. Doloribus, sit quas?</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Reviews -->
+    <section class="reviews" id="reviews">
+        <div class="heading">
+            <span>Reviews</span>
+            <h1>What Our Customers Say</h1>
+        </div>
+        <div class="reviews-container">
+            <div class="box">
+                <div class="rev-img">
+                    <img src="img/rev1.jpeg" alt="rev1.jpg">
+                </div>
+                <h2>Someone Name</h2>
+                <div class="stars">
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star-half' ></i>
+                </div>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus, facere ad iusto ea quasi accusamus necessitatibus sint totam.</p>
+            </div>
+            <div class="box">
+                <div class="rev-img">
+                    <img src="img/rev2.jpg" alt="rev1.jpg">
+                </div>
+                <h2>Someone Name</h2>
+                <div class="stars">
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star-half' ></i>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque mollitia quos alias laboriosam vero? At error dolorem nam.</p>
+            </div>
+            <div class="box">
+                <div class="rev-img">
+                    <img src="img/rev3.jpg" alt="rev1.jpg">
+                </div>
+                <h2>Someone Name</h2>
+                <div class="stars">
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star-half' ></i>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus sapiente labore, iure ea quisquam cupiditate minus perferendis mollitia?</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <h2>Subscribe To Newsletter</h2>
+        <div class="box">
+            <input type="email" name="email" id="" placeholder="Enter Your Email...">
+            <a href="#" class="btn" >Subscribe</a>
+        </div>
+    </section>
+    
+    
+
+<!-- Scroll Reveal -->
 <script src="https://unpkg.com/scrollreveal"></script>
 
 
     <!-- Link To JS -->
-    <script >
+    <script>
         let menu = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar')
 
@@ -616,12 +786,6 @@ sr.reveal('.reviews-container', {delay: 50, origin: 'top'});
 sr.reveal('.newsletter .box', {delay: 400, origin: 'bottom'});
     </script>
 
-
-
-{% block content %}
-
-
-{% endblock content %}
-
 </body>
+
 </html>
