@@ -1,4 +1,4 @@
-{% extends 'home/base.html' %}
+{% extends 'home/nav.html' %}
 {% load static %}
 
 
@@ -22,16 +22,16 @@
         <form action="">
             <div class="form-container">
                 <div class="input-box">
-                    <span>Location</span>
-                    <input type="search" name="" id="" placeholder="Search Places">
+                    <span>Company</span>
+                    <input type="search" name="" id="" placeholder="Search comapny">
                 </div>
                 <div class="input-box">
-                    <span>Pick-Up Date</span>
-                    <input type="date" name="" id="">
+                    <span>Name</span>
+                    <input type="search" name="" id="" placeholder="Search Name">
                 </div>
                 <div class="input-box">
-                    <span>Return Date</span>
-                    <input type="date" name="" id="">
+                    <span>Price</span>
+                    <input type="search" name="" id="" placeholder="Search price">
                 </div>
                 <input type="submit" name="" id="" class="btn">
             </div>
@@ -85,7 +85,7 @@
                 </div>
                 <p><a href="{% url 'detail' cars.uid %}" >View</a></p>
                 <h3>{{cars.car_name}}</h3>
-                <h2>{{cars.price}} <span>Day</span> </h2>
+                <h2>{{cars.price}} <span>₹</span> </h2>
                 {% if user.is_authenticated %}
         <a href="{% url 'add_cart' cars.uid %}" class="btn">Rent Now</a>
         {% else %}
@@ -141,7 +141,7 @@
             </div>
             <div class="box">
                 <div class="rev-img">
-                    <img src="static/img/rev2.jpg" alt="rev1.jpg">
+                    <img src="{% static 'img/rev2.jpg' %}" alt="rev1.jpg">
                 </div>
                 <h2>Ak</h2>
                 <div class="stars">
