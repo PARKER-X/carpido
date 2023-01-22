@@ -1,193 +1,334 @@
-{% extends 'home/newbase.html' %}
-{% load static %}
+{% extends 'home/nav.html' %}
+{% block content %}
 
-
-
-
-<body>
-    {% block content %}
-    <!-- Home -->
-    <section class="home" id="home">
-        <div class="text">
-            <h1><span>Looking</span> to <br>Buy a car</h1>
-            <p>Best Car Buying website most famous brand website include bmw rollroyce Honda ferrari many more   <br>
-                Buy More Pay Less.
-            </p>
-            <div class="app-stores">
-                <a href="#"> <img src="{% static 'img/ios6.png' %}" alt=""></a>
-                <a href="#"><img src="{% static 'img/play2.png' %}" alt=""></a>
-            </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class = "card-wrapper">
+    <div class = "card">
+      <!-- card left -->
+      <div class = "product-imgs">
+        <div class = "img-display">
+          <div class = "img-showcase">
+            <img src = "{{car.images.url}}" alt = "shoe image">
+            <img src = "{{car.images4.url}}" alt = "shoe image">
+            <img src = "{{car.images2.url}}" alt = "shoe image">
+            <img src = "{{car.images3.url}}" alt = "shoe image">
+          </div>
         </div>
-
-        <form action="">
-            <div class="form-container">
-                <div class="input-box">
-                    <span>Location</span>
-                    <input type="search" name="" id="" placeholder="Search Places">
-                </div>
-                <div class="input-box">
-                    <span>Pick-Up Date</span>
-                    <input type="date" name="" id="">
-                </div>
-                <div class="input-box">
-                    <span>Return Date</span>
-                    <input type="date" name="" id="">
-                </div>
-                <input type="submit" name="" id="" class="btn">
-            </div>
-        </form>
-    </section>
-
-
-    <!-- Ride -->
-    <section class="ride" id="ride">
-        <div class="heading">
-            <span>How It Works</span>
-            <h1>Buy With 3 Easy Steps</h1>
+        <div class = "img-select">
+          <div class = "img-item">
+            <a href = "#" data-id = "1">
+              <img src = "{{car.images2.url}}" alt = "shoe image" style="height:90px; width:90px">
+            </a>
+          </div>
+          <div class = "img-item">
+            <a href = "#" data-id = "2">
+              <img src = "{{car.images3.url}}" alt = "shoe image" style="height:90px; width:90px">
+            </a>
+          </div>
+          <div class = "img-item">
+            <a href = "#" data-id = "3">
+              <img src = "{{car.images4.url}}" alt = "shoe image" style="height:90px; width:90px">
+            </a>
+          </div>
+          <div class = "img-item">
+            <a href = "#" data-id = "4">
+              <img src = "{{car.images5.url}}" alt = "shoe image" style="height:90px; width:90px">
+            </a>
+          </div>
         </div>
-        <div class="ride-container">
-            <div class="box">
-                <i class="bx bxs-map"></i>
-                <h2>Choose a location</h2>
-                <p>Any location any where in the world from earth to mars india to england asia to antartica delhi to mumbai village to city. Carpido is here for you. </p>
-            </div>
-            
-            <div class="box">
-                <i class='bx bxs-calendar-check'></i>
-                <h2>Pick-Up Date</h2>
-                <p> pick your date Book your car then pay Give me your pickup date I will give your car for riding.Go and enjoy your life with your family and friends. </p>
-            </div>
-
-            <div class="box">
-                <i class='bx bxs-calendar-star'></i>
-                <h2>Book A Car</h2>
-                <p>Book your car pick your date then pay Book various car with Good rate  I will give your car for riding.Go and enjoy your life with your family. </p>
-            </div>
-
-    
+      </div>
+      <!-- card right -->
+      <div class = "product-content">
+        <h2 class = "product-title">Car-Rent</h2>
+        <a href = "{% url 'ride' %}" class = "product-link">visit Car store</a>
+        <div class = "product-rating">
+          <i class = "fas fa-star"></i>
+          <i class = "fas fa-star"></i>
+          <i class = "fas fa-star"></i>
+          <i class = "fas fa-star"></i>
+          <i class = "fas fa-star-half-alt"></i>
+          <span>4.7(21)</span>
         </div>
-    </section>
-
-    <!-- Services -->
-    <section class="services" id="services">
-        <div class="heading">
-            <span>Best Services</span>
-            <h1>Explore Out Top Deals <br>From Top Rated Dealers
-            </h1>
+  
+        <div class = "product-price">
+          <p class = "last-price">Old Price: <span>₹340000</span></p>
+          <p class = "new-price">New Price: <span>₹{{car.price}}</span></p>
         </div>
-
-        
-        <div class="services-container">
-            {% for cars in car  %}
-            <div class="box">
-                <div class="box-img">
-                    <img src="{{cars.images.url}}" alt="">
-                </div>
-                <p><a href="{% url 'detail' cars.uid %}" >View</a></p>
-                <h3>{{cars.car_name}}</h3>
-                <h2>{{cars.price}} <span>Day</span> </h2>
-                
-                {% if user.is_authenticated %}
-                <a href="{% url 'add_cart' cars.uid %}" class="btn">Rent Now</a>
-                {% else %}
-                <a href="{% url 'Login' %}" class="btn">Rent Now</a>
-                {% endif %}
-                
-                {% comment %} <p>  <a href="{% url 'detail' detail_uid %}" class="btn btn-success"> View</a> </p> {% endcomment %}
-            </div>
-            {% endfor %}
+  
+        <div class = "product-detail">
+          <h2>about this item: </h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eveniet veniam tempora fuga tenetur placeat sapiente architecto illum soluta consequuntur, aspernatur quidem at sequi ipsa!</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, perferendis eius. Dignissimos, labore suscipit. Unde.</p>
+          <ul>
+            <li>Color: <span>{{car.color}}</span></li>
+            <li>Available: <span>in stock</span></li>
+            <li>Category: <span>{{car.category}}</span></li>
+            <li>Shipping Area: <span>All over the world</span></li>
+            <li>Shipping Fee: <span>Free</span></li>
+          </ul>
         </div>
-    </section>
-
-    <!-- About -->
-    <section class="about" id="about">
-        <div class="heading">
-            <span>About Us</span>
-            <h1>Best Customer Experience</h1>
+  
+        <div class = "purchase-info">
+          <input type = "number"  value = "1">
+          {% comment %} <button type = "button" class = "btn" > <a href="{% url 'add_cart' cars.uid %}">
+            Add to Cart </a> <i class = "fas fa-shopping-cart"></i>
+          </button> {% endcomment %}
+          <a href="{% url 'add_cart' car.uid %}" class="btn">Rent Now</a>
+          
         </div>
-        <div class="about-container">
-            <div class="about-img">
-                <img src="{% static 'img/cc1.jpg' %}" alt="about.jpg">
-            </div>
-            <div class="about-text">
-                <span>About Us</span>
-                <p>We are <strong style='color:orange;'> Carpido </strong> a car Buying website with best customer experience award 2020 2021 2022. we started this company in 2020 in  three years journey. we achieved highest no. of users. </p>
-                <p>Our mission statement is provide best customer experience for your users.</p>
-                <a href="#" class="btn">Learn More</a>
-            </div>
+  
+        <div class = "social-links">
+          <p>Share At: </p>
+          <a href = "#">
+            <i class = "fab fa-facebook-f"></i>
+          </a>
+          <a href = "#">
+            <i class = "fab fa-twitter"></i>
+          </a>
+          <a href = "#">
+            <i class = "fab fa-instagram"></i>
+          </a>
+          <a href = "#">
+            <i class = "fab fa-whatsapp"></i>
+          </a>
+          <a href = "#">
+            <i class = "fab fa-pinterest"></i>
+          </a>
         </div>
-    </section>
-
-
-    <!-- Reviews -->
-    <section class="reviews" id="reviews">
-        <div class="heading">
-            <span>Reviews</span>
-            <h1>What Our Customers Say</h1>
-        </div>
-        <div class="reviews-container">
-            <div class="box">
-                <div class="rev-img">
-                    <img src="{% static 'img/rev1.jpeg' %}" alt="rev1.jpg">
-                </div>
-                <h2>Rencho Baba</h2>
-                <div class="stars">
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star' ></i>
-                </div>
-                <p>Best car Buying website good car with good condition. I like this car me and my friends enjoying the long ride.</p>
-            </div>
-            <div class="box">
-                <div class="rev-img">
-                    <img src="{% static 'img/rev3.jpg' %}" alt="rev1.jpg">
-                </div>
-                <h2>Ak</h2>
-                <div class="stars">
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star' ></i>
-                </div>
-                <p>I'm a f1 racer. They have very good racing car at low price. I buy a car and win that competition</p>
-            </div>
-            <div class="box">
-                <div class="rev-img">
-                    <img src="{% static 'img/rev3.jpg' %}" alt="rev1.jpg">
-                </div>
-                <h2>Angelia</h2>
-                <div class="stars">
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star-half' ></i>
-                </div>
-                <p>Me and my friends decided to go for a long drive and we buy a car and save so much money. I'm fully statsified with their service.  </p>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Newsletter -->
-    <section class="newsletter">
-        <h2>Subscribe To Newsletter</h2>
-        <div class="box">
-            <input type="email" name="email" id="" placeholder="Enter Your Email...">
-            <a href="#" class="btn" >Subscribe</a>
-        </div>
-    </section>
-    <div class="copyright">
-        <p style="text-align:center;">&#169; Parker-Car-Buying All Right Reserved 2022</p>
-        <div class="social">
-            <a href="#"><i class='bx bxl-facebook' ></i></a>
-            <a href="#"><i class='bx bxl-twitter' ></i></a>
-            <a href="#"><i class='bx bxl-instagram' ></i></a>
-        </div>
+      </div>
     </div>
-    {% endblock content %}
+  </div>
 
-<!-- Scroll Reveal -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+body{
+    line-height: 1.5;
+}
+.card-wrapper{
+    max-width: 1100px;
+    margin: 0 auto;
+}
+img{
+    width: 100%;
+    display: block;
+}
+.img-display{
+    overflow: hidden;
+}
+.img-showcase{
+    display: flex;
+    width: 100%;
+    transition: all 0.5s ease;
+}
+.img-showcase img{
+    min-width: 100%;
+}
+.img-select{
+    display: flex;
+}
+.img-item{
+    margin: 0.3rem;
+}
+.img-item:nth-child(1),
+.img-item:nth-child(2),
+.img-item:nth-child(3){
+    margin-right: 0;
+}
+.img-item:hover{
+    opacity: 0.8;
+}
+.product-content{
+    padding: 2rem 1rem;
+}
+.product-title{
+    font-size: 3rem;
+    text-transform: capitalize;
+    font-weight: 700;
+    position: relative;
+    color: #12263a;
+    margin: 1rem 0;
+}
+.product-title::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    width: 80px;
+    background: #12263a;
+}
+.product-link{
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    background: #256eff;
+    color: #fff;
+    padding: 0 0.3rem;
+    transition: all 0.5s ease;
+}
+.product-link:hover{
+    opacity: 0.9;
+}
+.product-rating{
+    color: #ffc107;
+}
+.product-rating span{
+    font-weight: 600;
+    color: #252525;
+}
+.product-price{
+    margin: 1rem 0;
+    font-size: 1rem;
+    font-weight: 700;
+}
+.product-price span{
+    font-weight: 400;
+}
+.last-price span{
+    color: #f64749;
+    text-decoration: line-through;
+}
+.new-price span{
+    color: #256eff;
+}
+.product-detail h2{
+    text-transform: capitalize;
+    color: #12263a;
+    padding-bottom: 0.6rem;
+}
+.product-detail p{
+    font-size: 0.9rem;
+    padding: 0.3rem;
+    opacity: 0.8;
+}
+.product-detail ul{
+    margin: 1rem 0;
+    font-size: 0.9rem;
+}
+.product-detail ul li{
+    margin: 0;
+    list-style: none;
+    background: url(https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/checked.png) left center no-repeat;
+    background-size: 18px;
+    padding-left: 1.7rem;
+    margin: 0.4rem 0;
+    font-weight: 600;
+    opacity: 0.9;
+}
+.product-detail ul li span{
+    font-weight: 400;
+}
+.purchase-info{
+    margin: 1.5rem 0;
+}
+.purchase-info input,
+.purchase-info .btn{
+    border: 1.5px solid #ddd;
+    border-radius: 25px;
+    text-align: center;
+    padding: 0.45rem 0.8rem;
+    outline: 0;
+    margin-right: 0.2rem;
+    margin-bottom: 1rem;
+}
+.purchase-info input{
+    width: 60px;
+}
+.purchase-info .btn{
+    cursor: pointer;
+    color: #fff;
+}
+.purchase-info .btn:first-of-type{
+    background: #256eff;
+}
+.purchase-info .btn:last-of-type{
+    background: #f64749;
+}
+.purchase-info .btn:hover{
+    opacity: 0.9;
+}
+.social-links{
+    display: flex;
+    align-items: center;
+}
+.social-links a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    color: #000;
+    border: 1px solid #000;
+    margin: 0 0.2rem;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: all 0.5s ease;
+}
+.social-links a:hover{
+    background: #000;
+    border-color: transparent;
+    color: #fff;
+}
+
+@media screen and (min-width: 992px){
+    .card{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1.5rem;
+    }
+    .card-wrapper{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .product-imgs{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .product-content{
+        padding-top: 0;
+    }
+}
+  </style>
+
+  <script> 
+    const imgs = document.querySelectorAll('.img-select a');
+const imgBtns = [...imgs];
+let imgId = 1;
+
+imgBtns.forEach((imgItem) => {
+    imgItem.addEventListener('click', (event) => {
+        event.preventDefault();
+        imgId = imgItem.dataset.id;
+        slideImage();
+    });
+});
+
+function slideImage(){
+    const displayWidth = document.querySelector('.img-showcase img:first-child').clientWidth;
+
+    document.querySelector('.img-showcase').style.transform = `translateX(${- (imgId - 1) * displayWidth}px)`;
+}
+
+window.addEventListener('resize', slideImage);
+  </script>
+
+{% endblock content %}
