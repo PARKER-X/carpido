@@ -1,4 +1,4 @@
-{% extends 'home/base.html' %}
+{% extends 'home/nav.html' %}
 {% block content %}
 
 <style>
@@ -38,10 +38,7 @@ display: none!important;
                 <label for="zip">Zip</label>
                 <input type="text" id="zip" name="zip" placeholder="10001">
               </div>
-              <div class="col-50">
-                <label for="days">Days</label>
-                <input type="text" id="days" name="days" placeholder="How many days ">
-              </div>
+              
               
               <input type="submit" id='form-button' value="Proceed Payment" class="btn">
             </form>
@@ -60,9 +57,27 @@ display: none!important;
   <div class="col-25">
     <div class="container">
       <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>{{request.user.get_cart_count}}</b></span></h4>
-      {% for cars in car%}
+{% comment %} 
+      {% for cars in car %}
+      
       <p><a href="#">{{cars.car_name}}</a> <span class="price">{{cars.price}}</span></p>
+      
+      
+      {% endfor %} {% endcomment %}
+
+      {% for cartitems in carts.cart_items.all  %}
+      
+      <p><a href="#">{{cartitems.car.car_name}}</a> <span class="price">{{cartitems.car.price}}</span></p>
+
+
+      
+
+      
+      
+      
       {% endfor %}
+      
+
       <p><a href="#">Tax  </a> <span class="price">₹{{carts.tax_cart_total}}</span></p>
       <p><a href="#">Shipping  </a> <span class="price">₹10000</span></p>
       <hr>
