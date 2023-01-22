@@ -152,6 +152,7 @@ def ride(request):
 
 def checkout(request):
     checkout = Cart.objects.get(is_paid=False, user= request.user)
+   
     context = {'cars':checkout}
     return render(request, 'home/checkout.html', context)
 
@@ -194,3 +195,4 @@ def processOrder(request):
         
         ShippingAddress.objects.create(username=username, address= address, email=email,city= city, state=state, zip=zip,days=days,)
     return render(request, 'home/checkout.html', context)
+
