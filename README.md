@@ -43,7 +43,7 @@ The goal of the project to create a car and buying selling website with affordab
 
 - Clone the repo: 
     ```
-    git clone https://github.com/ironman32022/Hackexpress_vets.git
+    git clone https://github.com/PARKER-X/carpido.git
      ```
     
 After cloning successfully
